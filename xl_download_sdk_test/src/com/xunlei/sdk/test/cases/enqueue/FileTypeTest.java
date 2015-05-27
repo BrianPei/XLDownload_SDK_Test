@@ -1,6 +1,7 @@
-package com.xunlei.sdk.test.cases;
+package com.xunlei.sdk.test.cases.enqueue;
 
 import android.content.Context;
+
 import android.net.Uri;
 import android.util.Log;
 
@@ -8,12 +9,12 @@ import com.xunlei.download.XunLeiDownloadManager.Request;
 import com.xunlei.sdk.test.utils.BaseCase;
 import com.xunlei.sdk.test.utils.CaseUtils;
 
-public class EnqueueTest extends BaseCase {
+/*
+ * 文件类型下载测试
+ */
+public class FileTypeTest extends BaseCase {
 	public static String DOWNLOADPATH = "Download/sdk_test";
 
-	/*
-	 * 文件类型下载测试
-	 */
 	// 类型为APK
 	public void test_APK() {
 		printDivideLine();
@@ -105,10 +106,8 @@ public class EnqueueTest extends BaseCase {
 		Context context = this.getContext();
 		CaseUtils.startActivity(context);
 		sleep(3);
-		int speed = CaseUtils.selectDownloadSpeed(downloadManager);
-		assertTrue(speed > 0);
-		String type = CaseUtils.selectMimeType(downloadManager);
-		assertEquals("audio/wmv", type);
+		int status = CaseUtils.selectDownloadStatus(downloadManager);
+		assertEquals(490, status);
 	}
 
 	// 类型为AVI
@@ -124,10 +123,8 @@ public class EnqueueTest extends BaseCase {
 		Context context = this.getContext();
 		CaseUtils.startActivity(context);
 		sleep(3);
-		int speed = CaseUtils.selectDownloadSpeed(downloadManager);
-		assertTrue(speed > 0);
-		String type = CaseUtils.selectMimeType(downloadManager);
-		assertEquals("audio/avi", type);
+		int status = CaseUtils.selectDownloadStatus(downloadManager);
+		assertEquals(490, status);
 	}
 
 	// 类型为TXT
@@ -143,10 +140,8 @@ public class EnqueueTest extends BaseCase {
 		Context context = this.getContext();
 		CaseUtils.startActivity(context);
 		sleep(3);
-		int speed = CaseUtils.selectDownloadSpeed(downloadManager);
-		assertTrue(speed > 0);
-		String type = CaseUtils.selectMimeType(downloadManager);
-		assertEquals("text/plain", type);
+		int status = CaseUtils.selectDownloadStatus(downloadManager);
+		assertEquals(490, status);
 	}
 
 	// 类型为ZIP
