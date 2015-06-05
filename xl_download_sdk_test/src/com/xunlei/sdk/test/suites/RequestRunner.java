@@ -11,7 +11,6 @@ import com.xunlei.sdk.test.cases.request.SetDestinationInExternalPublicDir;
 import com.xunlei.sdk.test.cases.request.SetDestinationUri;
 import com.xunlei.sdk.test.cases.request.SetDownloadDelay;
 import com.xunlei.sdk.test.cases.request.SetMimeType;
-import com.xunlei.sdk.test.cases.request.SetNotificationVisibility;
 import com.xunlei.sdk.test.cases.request.SetTitle;
 
 import junit.framework.TestSuite;
@@ -32,7 +31,6 @@ public class RequestRunner extends InstrumentationTestRunner{
 		suite.addTestSuite(SetDestinationUri.class);
 		suite.addTestSuite(SetDownloadDelay.class);
 		suite.addTestSuite(SetMimeType.class);
-		suite.addTestSuite(SetNotificationVisibility.class);
 		suite.addTestSuite(SetTitle.class);
 		return suite;
 	}

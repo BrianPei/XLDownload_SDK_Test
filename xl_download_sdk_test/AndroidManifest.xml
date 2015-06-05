@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
 	<instrumentation
-		android:name="android.test.InstrumentationTestRunner"
+		android:name="com.zutubi.android.junitreport.JUnitReportTestRunner"
 		android:targetPackage="com.xunlei.sdk.test" />
 
     <uses-sdk
@@ -64,10 +64,7 @@
         
         <meta-data
             android:name="com.xunlei.download.APP_KEY"
-            android:value="VGVzdFByb2R1Y3QAAQAB" />
-        <meta-data
-            android:name="com.xunlei.download.PRODUCT_ID"
-            android:value="10031" />
+            android:value="xzNjAwNjsyMDE2LTA1LTI4yb==86fd708aa785^5a41ae3c^a8^aa875e3" />
 
         <!-- recommend max bytes over mobile default value is 512 * 1024. -->
         <meta-data
@@ -81,7 +78,7 @@
         <!-- max concurrent downloads recommended is 5, max is 10 -->
         <meta-data
             android:name="com.xunlei.download.MAX_CONCURRENT_DOWNLOADS"
-            android:value="5" />
+            android:value="10" />
     </application>
 
 </manifest>

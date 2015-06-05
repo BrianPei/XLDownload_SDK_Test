@@ -10,12 +10,44 @@ import com.xunlei.sdk.test.utils.BaseCase;
  */
 public class TranslateStatus extends BaseCase {
 
-	// 下载状态为200
-	public void testTranslateStatus() {
+	// PENDING状态
+	public void testTranslateStatus190() {
+		printDivideLine();
+		int status = XunLeiDownloadManager.translateStatus(190);
+		Log.d("Test_Debug", "Status = " + String.valueOf(status));
+		assertEquals("状态码转换错误", XunLeiDownloadManager.STATUS_PENDING, status);
+	}
+
+	// RUNNING状态
+	public void testTranslateStatus192() {
+		printDivideLine();
+		int status = XunLeiDownloadManager.translateStatus(192);
+		Log.d("Test_Debug", "Status = " + String.valueOf(status));
+		assertEquals("状态码转换错误", XunLeiDownloadManager.STATUS_RUNNING, status);
+	}
+
+	// PAUSED状态
+	public void testTranslateStatus193() {
+		printDivideLine();
+		int status = XunLeiDownloadManager.translateStatus(193);
+		Log.d("Test_Debug", "Status = " + String.valueOf(status));
+		assertEquals("状态码转换错误", XunLeiDownloadManager.STATUS_PAUSED, status);
+	}
+
+	// SUCCESSFUL状态
+	public void testTranslateStatus200() {
 		printDivideLine();
 		int status = XunLeiDownloadManager.translateStatus(200);
-		Log.d("Test_Debug", String.valueOf(status));
-		assertEquals(XunLeiDownloadManager.STATUS_SUCCESSFUL, status);
+		Log.d("Test_Debug", "Status = " + String.valueOf(status));
+		assertEquals("状态码转换错误", XunLeiDownloadManager.STATUS_SUCCESSFUL, status);
+	}
+
+	// FAILED状态
+	public void testTranslateStatus489() {
+		printDivideLine();
+		int status = XunLeiDownloadManager.translateStatus(403);
+		Log.d("Test_Debug", "Status = " + String.valueOf(status));
+		assertEquals("状态码转换错误", XunLeiDownloadManager.STATUS_FAILED, status);
 	}
 
 }

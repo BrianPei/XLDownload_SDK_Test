@@ -2,14 +2,17 @@ package com.xunlei.sdk.test.utils;
 
 import android.content.Context;
 import android.test.AndroidTestCase;
-import android.util.Log;
 
 import com.xunlei.download.XunLeiDownloadManager;
 import com.xunlei.download.XunLeiDownloadManager.Query;
+import com.xunlei.sdk.test.utils.log.DebugLog;
 
 public class BaseCase extends AndroidTestCase {
 	protected XunLeiDownloadManager downloadManager;
 	protected Query query;
+	protected DatabaseHelper dbHelper;
+
+	public static String DOWNLOADPATH = "Download/sdk_test";
 
 	public BaseCase() {
 	}
@@ -18,6 +21,7 @@ public class BaseCase extends AndroidTestCase {
 		Context context = this.getContext();
 		downloadManager = new XunLeiDownloadManager(context);
 		query = new Query();
+		dbHelper = new DatabaseHelper(context);
 	}
 
 	public void tearDown() {
@@ -34,6 +38,6 @@ public class BaseCase extends AndroidTestCase {
 	public static void printDivideLine() {
 		String caseName = Thread.currentThread().getStackTrace()[3]
 				.getMethodName();
-		Log.d("Test_Debug", "*******" + caseName + " Start!*******");
+		DebugLog.d("Test_Debug", "*******" + caseName + " Start!*******");
 	}
 }

@@ -11,18 +11,21 @@ import com.xunlei.sdk.test.utils.CaseUtils;
  */
 public class Remove extends BaseCase {
 
-	public void testRemove() {
+	// 删除正在下载的任务
+	public void testRemoveRunning() {
 		printDivideLine();
+		// 建立下载任务
 		long id = CaseUtils.insertDownloadTask(downloadManager);
-		assertTrue(id > 0);
 		Context context = this.getContext();
 		CaseUtils.startActivity(context);
-		sleep(2);
+		sleep(3);
+		// 调用接口删除任务
 		int result = downloadManager.remove(id);
-		assertEquals(1, result);
+		assertEquals("删除任务失败", 1, result);
 		sleep(1);
-		Cursor cursor = CaseUtils.selectNewRow(downloadManager);
-		assertTrue(cursor.getLong(cursor.getColumnIndex("_id")) < id);
+		// 查询本地数据库验证任务已被删除
+		Cursor cursor = CaseUtils.selectTask(context, downloadManager, id);
+		assertEquals("任务仍存在于数据库", 0, cursor.getCount());
 	}
 
 }

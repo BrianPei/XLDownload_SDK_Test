@@ -1,6 +1,7 @@
 package com.xunlei.sdk.test.suites;
 
 import com.xunlei.sdk.test.cases.manager.AddCompletedDownload;
+import com.xunlei.sdk.test.cases.manager.Enqueue;
 import com.xunlei.sdk.test.cases.manager.GetDownloadUri;
 import com.xunlei.sdk.test.cases.manager.GetMaxBytesOverMobile;
 import com.xunlei.sdk.test.cases.manager.GetMimeTypeForDownloadedFile;
@@ -9,6 +10,7 @@ import com.xunlei.sdk.test.cases.manager.GetRecommendedMaxBytesOverMobile;
 import com.xunlei.sdk.test.cases.manager.GetUriForDownloadedFile;
 import com.xunlei.sdk.test.cases.manager.MarkRowDeleted;
 import com.xunlei.sdk.test.cases.manager.PauseDownload;
+import com.xunlei.sdk.test.cases.manager.Query;
 import com.xunlei.sdk.test.cases.manager.Remove;
 import com.xunlei.sdk.test.cases.manager.RestartDownload;
 import com.xunlei.sdk.test.cases.manager.ResumeDownload;
@@ -22,6 +24,8 @@ public class ManagerRunner extends InstrumentationTestRunner {
 
 	public TestSuite getTestSuite() {
 		TestSuite suite = new InstrumentationTestSuite(this);
+		suite.addTestSuite(Enqueue.class);
+		suite.addTestSuite(Query.class);
 		suite.addTestSuite(AddCompletedDownload.class);
 		suite.addTestSuite(GetDownloadUri.class);
 		suite.addTestSuite(GetMaxBytesOverMobile.class);
