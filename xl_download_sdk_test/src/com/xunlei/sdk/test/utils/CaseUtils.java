@@ -113,6 +113,22 @@ public class CaseUtils extends AndroidTestCase {
 	}
 
 	/**
+	 * 从本地数据库获取全部任务
+	 * 
+	 * @param context
+	 * @param downloadManager
+	 * @return
+	 */
+	public static Cursor selectAllTask(Context context,
+			XunLeiDownloadManager downloadManager) {
+		DatabaseHelper dbHelper = new DatabaseHelper(context);
+		SQLiteDatabase db = dbHelper.getReadableDatabase();
+		Cursor cursor = db.rawQuery("select * from xl_downloads", null);
+		cursor.moveToNext();
+		return cursor;
+	}
+
+	/**
 	 * 从本地数据库获取指定下载任务的下载速度
 	 * 
 	 * @param context

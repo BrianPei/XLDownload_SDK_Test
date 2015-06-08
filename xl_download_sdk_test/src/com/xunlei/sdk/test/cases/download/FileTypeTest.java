@@ -20,7 +20,7 @@ public class FileTypeTest extends BaseCase {
 		printDivideLine();
 		// 建立下载任务
 		Request request = new Request(
-				Uri.parse("http://cdn.vko.cn/pai/ppandroid.apk"));
+				Uri.parse("http://cache.iruan.cn/201412/201412181_uc.apk"));
 		request.setDestinationInExternalPublicDir(DOWNLOADPATH,
 				"201412181_uc.apk");
 		long id = downloadManager.enqueue(request);

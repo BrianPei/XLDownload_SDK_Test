@@ -24,8 +24,7 @@ public class DownloadStatusTest extends BaseCase {
 			sleep(1);
 			status = CaseUtils.selectDownloadStatus(context, downloadManager,
 					id);
-			break;
-		} while (status > 400);
+		} while (status < 400);
 		DebugLog.d("Test_Debug", "Final Status = " + String.valueOf(status));
 	}
 }
